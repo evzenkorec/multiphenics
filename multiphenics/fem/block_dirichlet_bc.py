@@ -29,9 +29,9 @@ class BlockDirichletBC(BlockDirichletBC_Base):
         if block_function_space is None:
             for bc in bcs:
                 if block_function_space is None:
-                    block_function_space = bc.function_space().block_function_space()
+                    block_function_space = bc.function_space.block_function_space()
                 else:
-                    assert block_function_space is bc.function_space().block_function_space()
+                    assert block_function_space is bc.function_space.block_function_space()
         assert block_function_space is not None, "It is not possible to build an empty BlockDirichletBC without providing a block_function_space"
         self._block_function_space = block_function_space
         # Split again bcs according to block_index
@@ -39,7 +39,7 @@ class BlockDirichletBC(BlockDirichletBC_Base):
         for _ in range(self._block_function_space.num_sub_spaces()):
             self.bcs.append(list())
         for bc in bcs:
-            block_index = bc.function_space().block_index()
+            block_index = bc.function_space.block_index()
             if hasattr(block_function_space, "is_block_subspace"):
                 assert block_index in block_function_space.components_to_sub_components, "Block function space and BC block index are not consistent on the sub space."
                 block_index = block_function_space.components_to_sub_components[block_index]
@@ -56,6 +56,7 @@ class BlockDirichletBC(BlockDirichletBC_Base):
     def __len__(self):
         return len(self.bcs)
         
+    @property
     def block_function_space(self):
         return self._block_function_space
     

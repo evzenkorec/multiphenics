@@ -18,8 +18,10 @@
 
 from multiphenics.nls.block_nonlinear_problem import BlockNonlinearProblem
 from multiphenics.nls.block_petsc_snes_solver import BlockPETScSNESSolver
+from multiphenics.nls.block_newton_solver import BlockNewtonSolver
 
 __all__ = [
     'BlockNonlinearProblem',
-    'BlockPETScSNESSolver'
+    'BlockPETScSNESSolver',
+    'BlockNewtonSolver'
 ]

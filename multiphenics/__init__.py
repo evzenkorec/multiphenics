@@ -21,7 +21,7 @@ from multiphenics.function import assign, block_assign, BlockElement, BlockFunct
 from multiphenics.io import File, plot, XDMFFile
 from multiphenics.la import as_backend_type, block_matlab_export, BlockSLEPcEigenSolver, block_solve, SLEPcEigenSolver
 from multiphenics.mesh import MeshRestriction
-from multiphenics.nls import BlockNonlinearProblem, BlockPETScSNESSolver
+from multiphenics.nls import BlockNonlinearProblem, BlockPETScSNESSolver, BlockNewtonSolver
 
 __all__ = [
     'as_backend_type',
@@ -38,6 +38,7 @@ __all__ = [
     'block_matlab_export',
     'BlockNonlinearProblem',
     'BlockPETScSNESSolver',
+    'BlockNewtonSolver',
     'block_restrict',
     'BlockSLEPcEigenSolver',
     'block_solve',
